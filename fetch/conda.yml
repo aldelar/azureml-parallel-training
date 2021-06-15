@@ -1,0 +1,11 @@
+channels:
+- conda-forge
+dependencies:
+- pip=20.2.4
+- python=3.8
+- pip:
+  - azureml-core
+  - azureml-dataprep[fuse]
+  - azureml-dataset-runtime[fuse,pandas]
+  - azureml-defaults
+  - azureml-telemetry
