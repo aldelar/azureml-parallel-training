@@ -1,3 +1,4 @@
+from ast import arguments
 from azureml.core import Workspace, Environment, Experiment
 from azureml.core.compute import ComputeTarget
 from azureml.core.runconfig import RunConfiguration
@@ -34,7 +35,7 @@ fetch_pss = PythonScriptStep(
     script_name="./fetch/fetch.py",
     compute_target=fetch_ct,
     runconfig = fetch_rc,
-    allow_reuse=True,
+    allow_reuse=False,
     outputs=[tenant_metadata_ofdc],
     arguments=["--tenant_metadata_folder", tenant_metadata_ofdc]
     )
@@ -55,7 +56,8 @@ train_prc = ParallelRunConfig(
 train_prs = ParallelRunStep(
     name="train",
     parallel_run_config=train_prc,
-    allow_reuse=True,
+    allow_reuse=False,
+    arguments=["--param_1","value_of_param_1"],
     inputs = [tenant_metadata_ofdc.as_input()]
 )
 
