@@ -9,9 +9,12 @@ This simulates a very simple mock pipeline which:
 If you're running this script on a non AML Compute Intance compute (for example your local computer):
 - Go to your AML workspace (ml.azure.com), click on the drop down top right with the name of the workspace, and 'download config file'. Place that file in the root of this repo.
 - Then build a local conda environment file to run the pipeline build script from:
-> cd to the root of the repo
-> conda env create -f conda.yml
-> conda activate aml-parallel-training
-> python train-tenants.py
+
+```bash
+cd azureml-parallel-training
+conda env create -f conda.yml
+conda activate aml-parallel-training
+python train-tenants.py
+```
 
 The pipeline output will stream to the console, or you can go to your AML workspace to monitor the pipeline run.
