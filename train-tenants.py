@@ -9,8 +9,8 @@ from azureml.pipeline.core import Pipeline
 ws = Workspace.from_config()
 
 # compute clusters
-fetch_ct = ComputeTarget(workspace=ws, name="cpu-2x-ds2v2")
-train_ct = ComputeTarget(workspace=ws, name="cpu-2x-ds2v2")
+fetch_ct = ComputeTarget(workspace=ws, name="cpu-4x-ds3v2")
+train_ct = ComputeTarget(workspace=ws, name="cpu-4x-ds3v2")
 
 # environments definitions
 fetch_e = Environment.from_docker_image(
